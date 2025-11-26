@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: incubator-management
+server:
+  ssl:
+    enabled: true
+    key-store: classpath:server.controller
+    key-store-password: dasheshi
+    key-store-type: PKCS12
+    key-alias: client
+    protocol: TLSv1.3
+    ciphers: TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256
+    enabled-protocols: TLSv1.3
+    trust-store: classpath:server.controller
+    trust-store-password: dasheshi
+    client-auth: need  # 如果需要双向认证
+  port: 12398
+cfg:
+  serverip: http://10.30.68.188:30080/exp/dispatcher/overSeer/finish
+  tcp-server-ip: 10.30.68.46
+  tcp-server-port: 5004
+  shakermanagement: auto
+  shake-speed: 1000
+  temperature-min: 4
+  temperature-max: 50
+management:
+  endpoints:
+    enabled-by-default: true
+  endpoint:
+    beans:
+      cache:
+        time-to-live: 100000
+    info:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+      cache:
+        time-to-live: 100000
